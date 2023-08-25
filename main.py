@@ -1,10 +1,3 @@
-import matplotlib.pyplot as plt
-import HousePlan
-from Modules import TubeModule
-from Modules import BasicModule
-from Modules import ConjunctiveModule
-from Modules import CorridorModule
-
 import module_extractor
 import neo4j_driver
 
@@ -114,9 +107,9 @@ for i in range(len(corridor_id)):
 
 for i in range(len(corridor_house_connectivity)):
     if corridor_house_connectivity[i][1] in basic_id:
-        app.add_corridor_basic_connectivity(corridor_house_connectivity[i][0],corridor_house_connectivity[i][1])
+        app.add_corridor_basic_connectivity(corridor_house_connectivity[i][0], corridor_house_connectivity[i][1])
     elif corridor_house_connectivity[i][1] in conjunct_id:
-        app.add_corridor_conjunct_connectivity(corridor_house_connectivity[i][0],corridor_house_connectivity[i][1])
+        app.add_corridor_conjunct_connectivity(corridor_house_connectivity[i][0], corridor_house_connectivity[i][1])
 
 for i in range(len(house_connectivity)):
     if house_connectivity[i][0] in conjunct_id:
