@@ -1,0 +1,27 @@
+version: '3.10'
+services:
+  neo4j:
+    # 指定容器名字：
+    container_name: neo4j
+    privileged: true
+    restart: always
+    # 指定使用的镜像
+    image: neo4j:latest
+    #映射容器的端口号到宿主机的端口号
+    ports:
+      - "7474:7474"
+      - "7687:7687"
+    volumes:
+    #把容器的数据目录挂载到宿主机的对应目录下
+      - ./data:/data
+    #挂载日志目录
+      - ./logs:/logs
+    # 挂载配置目录
+      - ./conf:/conf
+    # 挂载数据导入目录
+      - ./import:/import
+    # 挂载插件导入目录
+      - ./plugins:/plugins
+    environment:
+    # 登陆时需密码
+      - NEO4J_AUTH=neo4j/Xyz0531!
